@@ -8,19 +8,26 @@ import { useState,useEffect} from "react";
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState([])
-
+  const [search, setSearch] = useState("")
   const handleChange = async (e) => {
    e.preventDefault()
     const data1 = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=${e.target.value}`)
     var data2 = await data1.json()
     console.log("data2" ,data2)
     setSelected(data2)
+    setSearch(e.target.value)
   }
-
+  console.log("search",search)
   useEffect(() => {
     handleChange()
   }, [])
 
+  const handleproduct=(id) => {
+
+    localStorage.setItem("id",JSON.stringify(id))
+    localStorage.setItem("searched",(search))
+  
+  }
   return (
     <div className="nav">
       <div className="navbar">
@@ -65,8 +72,8 @@ export const Navbar = () => {
               <SearchIcon id="btninput" />
               <div className="searchbox">
               {selected.map((e)=>{
-
-            return <div className="searchelement" >
+                  console.log(e)
+            return <div className="searchelement" onClick={()=>{handleproduct(e._id)}}>
               <div className="searchimagediv">
               <img src={e.image} style={{width:"100%",height:"100%"}}/>
               </div>
