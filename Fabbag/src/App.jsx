@@ -1,4 +1,8 @@
 import { Link, Route, Routes } from 'react-router-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Carosel from './Components/Carosel/Carosel';
+import { Productdetails } from "./Components/ProductDetails/Productdetails";
 import './App.css'
 import { HomePage } from './Components/Home';
 import { Homedetail } from './Components/HomeDetails';
