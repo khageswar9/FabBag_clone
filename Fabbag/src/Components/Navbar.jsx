@@ -2,11 +2,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useState,useEffect} from "react";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate =  useNavigate();
   const [selected, setSelected] = useState([])
   const [search, setSearch] = useState("")
   const handleChange = async (e) => {
@@ -26,6 +28,7 @@ export const Navbar = () => {
 
     localStorage.setItem("id",JSON.stringify(id))
     localStorage.setItem("searched",(search))
+    navigate("/products/id");
   
   }
   return (

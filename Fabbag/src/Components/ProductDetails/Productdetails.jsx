@@ -8,7 +8,7 @@ const [singleproduct , setsingleproduct] = useState({})
 const [multiproduct , setmultiproduct] =useState([])
 
 useEffect(()=>{
-    const id = JSON.parse(localStorage.getItem("P_id"));
+    const id = JSON.parse(localStorage.getItem("id"));
  async function getItem (){
      const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/products/${id}`);
      const res = await data.json();
@@ -18,8 +18,8 @@ useEffect(()=>{
 
 
     async function getmultipleItem (){
-        const id = JSON.parse(localStorage.getItem("P_id"));
-        const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=sugar`);
+        const searched = JSON.parse(localStorage.getItem("searched"));
+        const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=${searched}`);
         const res = await data.json();
         setmultiproduct(res)
     }

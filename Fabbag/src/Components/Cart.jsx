@@ -4,7 +4,7 @@ import ProductSection from "./ProductSection";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCartItems } from "../../Redux/cart/actions";
+import { fetchCartItems } from "../Redux/cart/actions";
 const CartWrapper = styled.div`
    #cart-details{
       display: flex;
