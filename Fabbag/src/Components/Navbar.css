@@ -127,8 +127,8 @@ a{
     
 }
 .searchbox{
- /* width:50%;
- height:500px; */
+ width:50%;
+ height:500px;
  /* border: 1px solid red; */
 position: absolute;
 left:20px;
@@ -225,3 +225,32 @@ background-color:white;
   position: relative;
 }
 
+
+.link-btn{
+  text-decoration: none;
+  display: block;
+  border: 2px solid black;
+  text-align: center;
+  height: 50px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 10px 0px;
+  color: black;
+  transition: 0.7s;
+}
+
+.checkout-btn{
+  font-weight: 500;
+  background-color: #e5b95f;
+  border: none;
+}
+.checkout-btn:hover{
+  background-color: #000000;
+  color:white;
+}
+
+.cart-btn:hover{
+  border: none;
+  background-color:#e5b95f
+}
