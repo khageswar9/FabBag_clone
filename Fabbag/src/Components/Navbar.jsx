@@ -5,7 +5,9 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useState,useEffect} from "react";
-
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchCartItems } from "../Redux/cart/actions";
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate =  useNavigate();
@@ -32,6 +34,15 @@ export const Navbar = () => {
     navigate("/productsdetails");
   
   }
+  const userId = useSelector(store => store.userId.userId);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchCartItems(userId));
+
+  },[]);
+  const cartItems = useSelector(store => store.cart) || [];
+  // console.log(cartItems);
   return (
     <div className="nav">
       <div className="navbar">
@@ -62,9 +73,7 @@ export const Navbar = () => {
          {loged === true ?
           <div className="accountLogin" onMouseLeave={()=>{setLoged(!loged)}}>
           <div className="accountfirst">
-            <p style={{color:"black"}}>Language:</p>
-            <p  style={{color:"goldenrod"}}>En</p>
-            <p style={{marginLeft:"10px",color:"black"}}>Fr</p>
+          <Link to="/cart"> <p style={{color:"black"}}>Cart</p></Link>
           </div>
           <Link to="/checkout"> <div style={{marginLeft:"20px",color:"black",marginTop:"-20px"}}><p>Checkout</p></div></Link>
           <Link to="/login">  <div style={{marginLeft:"20px",color:"black"}}><p>Sign In</p></div></Link>
@@ -119,10 +128,74 @@ export const Navbar = () => {
             </span>
             <div className="carttop1">
             <h3>MY CART</h3>
-            </div>      
+            </div> 
+            {cartItems.length === 0 ? (
+              "No items in cart"
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "85vh",
+                }}
+              >
+                <div className="cartitems">
+                  {cartItems.map((item) => (
+                    <div style={{ display: "flex" }}>
+                      <div>
+                        <img
+                          src={item.image}
+                          alt=""
+                          style={{ width: "70px" }}
+                        />
+                      </div>
+                      <div style={{ fontSize: "14px" }}>
+                        <p>{item.title}</p>
+                        <p>
+                          {" "}
+                          <span style={{ color: "grey" }}>
+                          Qty :{" "}
+                            {item.quantity}
+                          </span>{" "}
+                          Rs : {item.price}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <div className="total">
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <h2>Total : </h2>
+                      <h2 style={{ color: "#e5b95f" }}>
+                        Rs.{" "}
+                        {cartItems.reduce(
+                          (acc, cur) => acc + cur.price * cur.quantity,
+                          0
+                        )}
+                      </h2>
+                    </div>
+                    <Link to="/cart" className="link-btn cart-btn">
+                      VIEW CART
+                    </Link>
+                    <Link to="/checkout" className="link-btn checkout-btn">
+                      CHECKOUT
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )} 
           </div>
+          
         ) : null}
       </div>
     </div>
   );
 };
+

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {Link} from "react-router-dom"
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@ function PriceSection({total,updateProductQuantity}){
             <p>Rs {total}</p>
         </div>
         <button id="update-cart-btn" className='cart-btn' onClick={updateProductQuantity}>UPDATE CART</button>
-        <button id='checkout-btn' className='cart-btn'>CHECK OUT</button>
+        <Link to='/checkout'><button id='checkout-btn' className='cart-btn'>CHECK OUT</button></Link>
     </SectionWrapper>
 
 }
