@@ -90,7 +90,7 @@ return (<div>
             </form>
            
             <div className="SI" >
-               <button  className="submitsignup"><Link    style={{textDecoration:'none',color:"black"}}  to="/signup">Create an Account</Link></button> 
+              <Link to="/signup"> <button  className="submitsignup" style={{textDecoration:'none',color:"black"}}> Create an Account</button> </Link>
             </div>
             </div>
 </div>)

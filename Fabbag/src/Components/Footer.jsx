@@ -22,7 +22,7 @@ export const Footer = () => {
           <p>Associated</p>
           <p>FAQ</p>
           <p>Collaborative with Fab Bag</p>
-          <p>Contact Us</p>
+         <Link to="/contactus"> <p>Contact Us</p></Link>
           <p>Returns & Refunds</p>
           <p>Terms & Conditions</p>
           <p>Privacy Policy</p>

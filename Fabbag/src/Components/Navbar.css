@@ -127,12 +127,12 @@ a{
     
 }
 .searchbox{
- width:50%;
+ /* width:50%; */
  height:500px;
  /* border: 1px solid red; */
 position: absolute;
 left:20px;
-top:215px;
+top:315px;
 z-index:1;
 background-color:white;
 
@@ -146,8 +146,8 @@ background-color:white;
   
 }
 .searchimagediv{
-  width:10%;
-  height:70%;
+  width:20%;
+  /* height:90%; */
 }
 .searchtitlediv{
   width:50%;

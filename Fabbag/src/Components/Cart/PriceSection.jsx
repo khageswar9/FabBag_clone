@@ -5,7 +5,7 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   padding: 0px 10px;
   width: 25%;
-  max-width: 300px;
+  /* max-width: 600px; */
   #total-price {
     font-weight: 500;
     display: flex;
@@ -43,14 +43,14 @@ const SectionWrapper = styled.div`
      }
 `;
 
-function PriceSection({total,updateCart}){
+function PriceSection({total,updateProductQuantity}){
 
     return <SectionWrapper>
         <div id='total-price'>
             <p>TOTAL PRICE :</p>
             <p>Rs {total}</p>
         </div>
-        <button id="update-cart-btn" className='cart-btn' onClick={updateCart}>UPDATE CART</button>
+        <button id="update-cart-btn" className='cart-btn' onClick={updateProductQuantity}>UPDATE CART</button>
         <button id='checkout-btn' className='cart-btn'>CHECK OUT</button>
     </SectionWrapper>
 

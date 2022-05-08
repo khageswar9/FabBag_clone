@@ -4,7 +4,7 @@ const Cart = require("../models/cart.model.js");
 
 
 
-router.post("" , async(req,res)=>{
+router.post("/" , async(req,res)=>{
     try{
         const cart = await Cart.create(
            req.body
