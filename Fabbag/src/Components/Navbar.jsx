@@ -79,7 +79,6 @@ export const Navbar = () => {
               </div>
               <div className="searchtitlediv" >{e.title}</div>
               <div className="searchpricediv">Price: {e.price} Rs</div>
-
             </div>
               })
            }</div>
