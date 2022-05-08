@@ -1,31 +1,28 @@
 
 import { useEffect, useState } from "react";
 import css from "./Productdetails.css";
+import Carosel from "../Carosel/Carosel"
 
 export const Productdetails=()=>{
 const [counter,setCounter]=useState(1);
 const [singleproduct , setsingleproduct] = useState({})
-const [multiproduct , setmultiproduct] =useState([])
+const [url , seturl] = useState("")
+
+
 
 useEffect(()=>{
+    const ser = localStorage.getItem("searched");
+    seturl(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=${ser}`)
+},[])
+useEffect(()=>{
     const id = JSON.parse(localStorage.getItem("id"));
- async function getItem (){
-     const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/products/${id}`);
+     async function getItem (){
+     const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct/${id}`);
      const res = await data.json();
      setsingleproduct(res)
  }
     getItem()
-
-
-    async function getmultipleItem (){
-        const searched = JSON.parse(localStorage.getItem("searched"));
-        const data = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=${searched}`);
-        const res = await data.json();
-        setmultiproduct(res)
-    }
-       getmultipleItem()
 },[])
- console.log(multiproduct)
 return (<div >
 <div className="main">
     <div>
@@ -83,7 +80,7 @@ Here's what you can expect inside your May Fab Bag:
 FAB BAG delivers the best of beauty and makeup products once a month, customized just </p>
 </div>
 
-
+ <Carosel url={url}/>
 
 </div>)
 }
