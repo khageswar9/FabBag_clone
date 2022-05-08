@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -38,6 +38,6 @@
 }
 
 button {
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
 }
 /* css file upload */
