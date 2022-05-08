@@ -55,7 +55,7 @@ export const Navbar = () => {
             className="goldenbutton"
           />
          <Link to="/cart"><FavoriteBorderIcon className="goldenbutton" /></Link>
-         <Link to="/signup"><AccountCircleOutlinedIcon className="goldenbutton1" onMouseOver={() => {
+         <AccountCircleOutlinedIcon className="goldenbutton1" onMouseOver={() => {
             setLoged(!loged)
             console.log(loged)
           }}/>
@@ -67,9 +67,9 @@ export const Navbar = () => {
             <p style={{marginLeft:"10px",color:"black"}}>Fr</p>
           </div>
           <div style={{marginLeft:"20px",color:"black",marginTop:"-20px"}}><p>Checkout</p></div>
-          <div style={{marginLeft:"20px",color:"black"}}><p>Sign In</p></div>
-          <div style={{marginLeft:"20px",color:"black"}}><p>Create An Account</p></div>
-        </div>: null}</Link>
+          <Link to="/login">  <div style={{marginLeft:"20px",color:"black"}}><p>Sign In</p></div></Link>
+          <Link to="/signup"> <div style={{marginLeft:"20px",color:"black"}}><p>Create An Account</p></div></Link>
+        </div>: null}
          <ShoppingCartOutlinedIcon className="goldenbutton"  onClick={() => {
               setRight(!right);
             }} />

@@ -127,8 +127,8 @@ a{
     
 }
 .searchbox{
- width:50%;
- height:500px;
+ /* width:50%;
+ height:500px; */
  /* border: 1px solid red; */
 position: absolute;
 left:20px;
