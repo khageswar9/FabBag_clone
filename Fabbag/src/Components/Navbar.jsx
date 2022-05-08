@@ -66,7 +66,7 @@ export const Navbar = () => {
             <p  style={{color:"goldenrod"}}>En</p>
             <p style={{marginLeft:"10px",color:"black"}}>Fr</p>
           </div>
-          <div style={{marginLeft:"20px",color:"black",marginTop:"-20px"}}><p>Checkout</p></div>
+          <Link to="/checkout"> <div style={{marginLeft:"20px",color:"black",marginTop:"-20px"}}><p>Checkout</p></div></Link>
           <Link to="/login">  <div style={{marginLeft:"20px",color:"black"}}><p>Sign In</p></div></Link>
           <Link to="/signup"> <div style={{marginLeft:"20px",color:"black"}}><p>Create An Account</p></div></Link>
         </div>: null}

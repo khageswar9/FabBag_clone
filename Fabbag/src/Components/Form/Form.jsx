@@ -5,8 +5,10 @@ import Checkbox from '../Checkbox/Checkbox';
 import styles from './Form.module.scss'
 import Select from '../Select/Select';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+    const navigate = useNavigate()
     const formSchema = Yup.object().shape({
         firstName: Yup.string()
             .min(2, 'Too Short!')
@@ -54,9 +56,11 @@ const Form = () => {
         },
         validationSchema: formSchema,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            alert("Your order has been Sucessful");
+            navigate("/")
         },
     });
+   
     return (
         <form className={styles.formContainer} onSubmit={formik.handleSubmit}>
             <div className={styles.formGroup}>
@@ -118,7 +122,7 @@ const Form = () => {
             </div>
             <div className={styles.formfooter}>
                 <div className={styles.retToCart}>&lt; Return to Cart</div>
-                <button className={styles.shoppingBtn} type='submit'>Continue Shopping</button>
+                <button className={styles.shoppingBtn} type='submit'>Confirm Order</button>
             </div>
             {/* <button type="submit">Submit</button> */}
         </form >

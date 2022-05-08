@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import Form from '../components/Form/Form'
+import Form from '../../components/Form/Form'
 import logo from '../../logo.png';
 import fab from './fab.jpg'
 import styles from './Checkout.module.scss';
@@ -47,7 +47,7 @@ const Checkout = () => {
                     <hr />
                 </div>
                 <div className={styles.coupanWrapper}>
-                    <input type="text" placeholder="Discount Code" value="" /> <button>Apply</button>
+                    <input type="text" placeholder="Discount Code" /> <button>Apply</button>
                 </div>
 
                 <div className={styles.horizonatlBar}>

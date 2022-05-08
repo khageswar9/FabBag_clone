@@ -12,7 +12,7 @@ import { Footer } from "./Components/Footer";
 import { About } from "./Components/About";
 import Cart from "./Components/Cart/Cart";
 import Contactus from "./Components/ContactUs/Contactus";
-// import {Checkout} from './Pages/Checkout/Checkout';
+import Checkout from "./Pages/Checkout/Checkout"
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/productsdetails" element={<Productdetails />} />
         <Route path="/contactus" element={<Contactus />} />
-        {/* <Route path='/checkout' element={<Checkout/>} /> */}
+        <Route path='/checkout' element={<Checkout/>} />
       </Routes>
       <Footer />
     </div>

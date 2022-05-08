@@ -94,6 +94,7 @@ return (
             // console.log("add tocart clicked");
             // console.log(counter,singleproduct._id,userId);
             dispatch(addProduct(userId,singleproduct._id,counter));
+            alert("Product added to your Cart")
 
           }}
         >
