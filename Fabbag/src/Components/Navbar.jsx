@@ -11,6 +11,8 @@ export const Navbar = () => {
   const navigate =  useNavigate();
   const [selected, setSelected] = useState([])
   const [search, setSearch] = useState("")
+  const [loged,setLoged] = useState(false);
+  const [right, setRight] = useState(false);
   const handleChange = async (e) => {
     const data1 = await fetch(`https://cryptic-ocean-94076.herokuapp.com/mainproduct?category=${e.target.value}`)
     var data2 = await data1.json()
@@ -53,8 +55,24 @@ export const Navbar = () => {
             className="goldenbutton"
           />
          <Link to="/cart"><FavoriteBorderIcon className="goldenbutton" /></Link>
-         <Link to="/signup"><AccountCircleOutlinedIcon className="goldenbutton" /></Link>
-          <Link to="/cart"> <ShoppingCartOutlinedIcon className="goldenbutton" /></Link>
+         <Link to="/signup"><AccountCircleOutlinedIcon className="goldenbutton1" onMouseOver={() => {
+            setLoged(!loged)
+            console.log(loged)
+          }}/>
+         {loged === true ?
+          <div className="accountLogin" onMouseLeave={()=>{setLoged(!loged)}}>
+          <div className="accountfirst">
+            <p style={{color:"black"}}>Language:</p>
+            <p  style={{color:"goldenrod"}}>En</p>
+            <p style={{marginLeft:"10px",color:"black"}}>Fr</p>
+          </div>
+          <div style={{marginLeft:"20px",color:"black",marginTop:"-20px"}}><p>Checkout</p></div>
+          <div style={{marginLeft:"20px",color:"black"}}><p>Sign In</p></div>
+          <div style={{marginLeft:"20px",color:"black"}}><p>Create An Account</p></div>
+        </div>: null}</Link>
+         <ShoppingCartOutlinedIcon className="goldenbutton"  onClick={() => {
+              setRight(!right);
+            }} />
         </div>
       </div>
       <div className="hiddendiv">
@@ -85,6 +103,23 @@ export const Navbar = () => {
               })
            }</div>
             </div>
+          </div>
+        ) : null}
+      </div>
+      <div className="hiddendiv">
+        {right === true ? (
+          <div className="serchdiv1">
+            <span
+              id="hidebtn1"
+              onClick={() => {
+                setRight(!right);
+              }}
+            >
+              &#9587;
+            </span>
+            <div className="carttop1">
+            <h3>MY CART</h3>
+            </div>      
           </div>
         ) : null}
       </div>
